@@ -16,7 +16,7 @@ myInput.addEventListener("keydown", function(event) {
 });
 
 function startGame() {
-  myOutput.innerHTML += " <br>You are in the commons at West K. You see a door to the north and a door to the east. Which way do you want to go?";
+  myOutput.innerHTML += rooms[0][0].description;
 
   if(myInput.value == 'h'){
     myOutput.innerHTML += help;
