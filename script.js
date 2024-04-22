@@ -5,10 +5,13 @@ let activeCol = 0;
 
 let help = 
   "***********************************</br>\
-   h - help</br>\
-   g - go</br>\
-   i - inventory</br>\
-   m - map</br>\
+  h - help</br>\
+  g n - go North</br>\
+  g s - go South</br>\
+  g e - go East</br>\
+  g w - go West</br>\
+  i - inventory</br>\
+  m - map</br>\
    ************************************</br>"
 
 myInput.addEventListener("keydown", function(event) {
@@ -18,18 +21,24 @@ myInput.addEventListener("keydown", function(event) {
 });
 
 function startGame() {
- 
-
   if(myInput.value == 'h'){
     myOutput.innerHTML += help;
   }if(myInput.value == 'g s'){
-    activeRow += 1;
+    if(checkBoundaries("s")){
+      activeRow += 1;
+    }    
   }if(myInput.value == 'g n'){
-    activeRow -= 1;
+    if(checkBoundaries("n")){
+      activeRow -= 1;
+    }   
   }if(myInput.value == 'g e'){
-    activeCol += 1;
+    if(checkBoundaries("e")){
+        activeCol += 1;
+    }   
   }if(myInput.value == 'g w'){
-    activeCol -= 1;
+    if(checkBoundaries("w")){
+        activeCol -= 1;
+    }   
   }
 
    myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
