@@ -7,6 +7,27 @@ function loadRooms(){
     [room7, room8, room9],
   ]
 }
+
+function checkBoundaries(direction){
+  //this means they are trying to up on the top row.
+  if(direction == "n" && activeRow == 0){
+     myOutput.innerHTML += "There is no door there"
+    return false;
+  }else if(direction == "s" && activeRow == 2){
+    //this means they are trying to go down on the bottom row.
+     myOutput.innerHTML += "There is no door there"
+     return false;
+  }else if(direction == "e" && activeCol == 2){
+    //this means they are trying to go right from the last col.
+     myOutput.innerHTML += "There is no door there"
+     return false;
+  }else if(direction == "w" && activeCol == 0){
+    //this means they are trying to go left from the 1st col.
+     myOutput.innerHTML += "There is no door there"
+     return false;
+  }
+  return true
+}
 let room1 = {
   name: 'Anything you want',
   description: `Describe the room here<br>
