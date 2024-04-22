@@ -1,5 +1,7 @@
 let myOutput = document.getElementById("myOutput");
 let myInput = document.getElementById("myInput");
+let activeRow = 0;
+let activeCol = 0;
 
 let help = 
   "***********************************</br>\
@@ -16,10 +18,20 @@ myInput.addEventListener("keydown", function(event) {
 });
 
 function startGame() {
-  myOutput.innerHTML += rooms[0][0].description;
+ 
 
   if(myInput.value == 'h'){
     myOutput.innerHTML += help;
+  }if(myInput.value == 'g s'){
+    activeRow += 1;
+  }if(myInput.value == 'g n'){
+    activeRow -= 1;
+  }if(myInput.value == 'g e'){
+    activeCol += 1;
+  }if(myInput.value == 'g w'){
+    activeCol -= 1;
   }
 
+   myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+  
 }
