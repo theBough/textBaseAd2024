@@ -2,6 +2,7 @@ let myOutput = document.getElementById("myOutput");
 let myInput = document.getElementById("myInput");
 let activeRow = 0;
 let activeCol = 0;
+let myItems = [];
 
 let help = 
   "***********************************</br>\
@@ -21,6 +22,8 @@ myInput.addEventListener("keydown", function(event) {
 });
 
 function startGame() {
+  myInput.value = myInput.value.toLowerCase();
+  
   if(myInput.value == 'h'){
     myOutput.innerHTML += help;
   }if(myInput.value == 'g s'){
@@ -39,8 +42,14 @@ function startGame() {
     if(checkBoundaries("w")){
         activeCol -= 1;
     }   
+  }if(myInput.value == 'l bicycle'){
+    myOutput.innerHTML += "<br> You notice a nice looking bicycle in the corner of the room. You pick it up and put it in your backpack.";
+    myItems.push("bike");
+    console.log("you now have a bicycle")
+    
   }
-
-   myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+  
+  myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+  myOutput.scrollTop = myOutput.scrollHeight;
   
 }
