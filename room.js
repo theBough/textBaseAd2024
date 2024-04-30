@@ -29,7 +29,7 @@ function checkBoundaries(direction){
   return true
 }
 let room1 = {
-  name: 'Anything you want',
+  name: 'roomOne',
   description: `Describe the room here<br>
       I can use more lines<br>
       with no error<br>
