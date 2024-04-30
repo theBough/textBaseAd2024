@@ -4,7 +4,7 @@ let activeRow = 0;
 let activeCol = 0;
 let myItems = [];
 
-let help = 
+let help =
   "***********************************</br>\
   h - help</br>\
   g n - go North</br>\
@@ -23,33 +23,37 @@ myInput.addEventListener("keydown", function(event) {
 
 function startGame() {
   myInput.value = myInput.value.toLowerCase();
-  
-  if(myInput.value == 'h'){
+  resolveGo();
+    resolveLook();
+  if (myInput.value == 'h') {
     myOutput.innerHTML += help;
-  }if(myInput.value == 'g s'){
-    if(checkBoundaries("s")){
-      activeRow += 1;
-    }    
-  }if(myInput.value == 'g n'){
-    if(checkBoundaries("n")){
-      activeRow -= 1;
-    }   
-  }if(myInput.value == 'g e'){
-    if(checkBoundaries("e")){
-        activeCol += 1;
-    }   
-  }if(myInput.value == 'g w'){
-    if(checkBoundaries("w")){
-        activeCol -= 1;
-    }   
-  }if(myInput.value == 'l bicycle'){
-    myOutput.innerHTML += "<br> You notice a nice looking bicycle in the corner of the room. You pick it up and put it in your backpack.";
-    myItems.push("bike");
-    console.log("you now have a bicycle")
-    
   }
-  
-  myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
-  myOutput.scrollTop = myOutput.scrollHeight;
-  
+
 }
+function resolveGo() {
+  if (myInput.value == 'g s') {
+    if (checkBoundaries("s")) {
+      activeRow += 1;
+      myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+      myOutput.scrollTop = myOutput.scrollHeight;
+    }
+  } if (myInput.value == 'g n') {
+    if (checkBoundaries("n")) {
+      activeRow -= 1;
+      myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+      myOutput.scrollTop = myOutput.scrollHeight;
+    }
+  } if (myInput.value == 'g e') {
+    if (checkBoundaries("e")) {
+      activeCol += 1;
+      myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+      myOutput.scrollTop = myOutput.scrollHeight;
+    }
+  } if (myInput.value == 'g w') {
+    if (checkBoundaries("w")) {
+      activeCol -= 1;
+      myOutput.innerHTML += rooms[activeRow][activeCol].description + "<br>";
+      myOutput.scrollTop = myOutput.scrollHeight;
+    }
+  }//end if
+}//end of resolveGo
