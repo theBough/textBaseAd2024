@@ -24,10 +24,10 @@ myInput.addEventListener("keydown", function(event) {
 function startGame() {
   myInput.value = myInput.value.toLowerCase();
   resolveGo();
-    resolveLook();
-  if (myInput.value == 'h') {
-    myOutput.innerHTML += help;
-  }
+  resolveLook();
+  resolveUse();
+  if (myInput.value == 'h') myOutput.innerHTML += help;
+  
 
 }
 function resolveGo() {
