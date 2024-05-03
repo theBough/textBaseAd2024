@@ -12,10 +12,12 @@ function checkBoundaries(direction){
   //this means they are trying to up on the top row.
   if(direction == "n" && activeRow == 0){
      myOutput.innerHTML += "There is no door there"
+     myOutput.scrollTop = myOutput.scrollHeight;
     return false;
   }else if(direction == "s" && activeRow == 2){
     //this means they are trying to go down on the bottom row.
      myOutput.innerHTML += "There is no door there"
+     myOutput.scrollTop = myOutput.scrollHeight;
      return false;
   }else if(direction == "e" && activeCol == 2){
     //this means they are trying to go right from the last col.
@@ -24,6 +26,11 @@ function checkBoundaries(direction){
   }else if(direction == "w" && activeCol == 0){
     //this means they are trying to go left from the 1st col.
      myOutput.innerHTML += "There is no door there"
+     return false;
+  }else if(direction == "e" && rooms[activeRow][activeCol].name == "roomOne"){
+  
+     myOutput.innerHTML += "<br>The door is locked. You need a bicycle to bash through it"
+     myOutput.scrollTop = myOutput.scrollHeight;
      return false;
   }
   return true
@@ -37,7 +44,7 @@ let room1 = {
 }
 let room2 = {
   name: 'Anything you want',
-  description: `Room 2 `
+  description: `Room <b>2</b> tetsetstesetse `
 }
 let room3 = {
   name: 'Anything you want',
@@ -48,7 +55,7 @@ let room4 = {
   description: `<br> You are in Room 4`
 }
 let room5 = {
-  name: 'Anything you want',
+  name: 'ramp',
   description: `Room 5 `
 }
 let room6 = {
