@@ -1,4 +1,6 @@
 let rooms = []
+let useBicycle = false;
+
 
 function loadRooms(){
   rooms = [
@@ -28,7 +30,7 @@ function checkBoundaries(direction){
      myOutput.innerHTML += "There is no door there"
      return false;
   }else if(direction == "e" && rooms[activeRow][activeCol].name == "roomOne"){
-  
+    if(useBicycle){return true;}
      myOutput.innerHTML += "<br>The door is locked. You need a bicycle to bash through it"
      myOutput.scrollTop = myOutput.scrollHeight;
      return false;
@@ -44,7 +46,8 @@ let room1 = {
 }
 let room2 = {
   name: 'Anything you want',
-  description: `Room <b>2</b> tetsetstesetse `
+  description: `<br>Room <b>2</b> You broke into the room with 
+  your bike, nice work. You now see a BEAR!`
 }
 let room3 = {
   name: 'Anything you want',
