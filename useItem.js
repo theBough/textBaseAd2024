@@ -1,8 +1,10 @@
 function resolveUse(){
   if (myInput.value == 'u bicycle') {
     if(myItems.includes('bicycle')){
-      if(rooms[activeRow][activeCol].name == 'ramp'){
-        myOutput.innerHTML += `<br> You ride your bicycle to the ramp.`;
+      if(rooms[activeRow][activeCol].name == 'roomOne'){
+        myOutput.innerHTML += `<br> You take your bike out, and peddle
+        as hard as you can, and smash open the door.`;
+        useBicycle = true;
          myOutput.scrollTop = myOutput.scrollHeight;
        //if you only want to use an item once. Then you would only need to remove it from the myItems   array. 
         //myItems.splice(myItems.indexOf('bicycle'),1);
