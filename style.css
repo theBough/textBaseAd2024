@@ -11,3 +11,9 @@ html {
   height:300px;
   overflow: auto;
 }
+.image{
+  height: 300px;
+  width: 300px;
+  display:none;
+  visibility: visible;
+}
