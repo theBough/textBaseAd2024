@@ -1,5 +1,6 @@
 let myOutput = document.getElementById("myOutput");
 let myInput = document.getElementById("myInput");
+let image = document.getElementById("mapPic");
 let activeRow = 0;
 let activeCol = 0;
 let myItems = [];
@@ -22,13 +23,17 @@ myInput.addEventListener("keydown", function(event) {
 });
 
 function startGame() {
+  image.style.display = "none"
   myInput.value = myInput.value.toLowerCase();
   resolveGo();
   resolveLook();
   resolveUse();
+  resolveMap();
   if (myInput.value == 'h') myOutput.innerHTML += help;
-  
-
+}
+function resolveMap(){
+  if(myInput.value == "m")image.style.display = "block";
+ 
 }
 function resolveGo() {
   if (myInput.value == 'g s') {
