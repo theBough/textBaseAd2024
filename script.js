@@ -6,7 +6,7 @@ let activeCol = 0;
 let myItems = [];
 
 let help =
-  "***********************************</br>\
+  "</br>***********************************</br>\
   h - help</br>\
   g n - go North</br>\
   g s - go South</br>\
@@ -25,11 +25,16 @@ myInput.addEventListener("keydown", function(event) {
 function startGame() {
   image.style.display = "none"
   myInput.value = myInput.value.toLowerCase();
-  resolveGo();
-  resolveLook();
-  resolveUse();
-  resolveMap();
-  if (myInput.value == 'h') myOutput.innerHTML += help;
+  if(resolveBoss()){
+    
+  }else{
+    resolveGo();
+    resolveLook();
+    resolveUse();
+    resolveMap();
+    if (myInput.value == 'h') myOutput.innerHTML += help;
+  }
+ 
 }
 function resolveMap(){
   if(myInput.value == "m")image.style.display = "block";
