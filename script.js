@@ -32,6 +32,7 @@ function startGame() {
     resolveLook();
     resolveUse();
     resolveMap();
+    resolveInventory();
     if (myInput.value == 'h') myOutput.innerHTML += help;
   }
  
