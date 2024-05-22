@@ -1,3 +1,16 @@
+function resolveInventory(){
+  if(myInput.value == 'i'){
+    if(myItems.length == 0){
+      myOutput.innerHTML += 'You have nothing in your inventory';
+    }else{
+      myOutput.innerHTML += 'You have the following items in your inventory:<br>';
+      for(let i = 0; i < myItems.length; i++){
+        myOutput.innerHTML += myItems[i] + '<br>';
+      }
+    }
+    myOutput.scrollTop = myOutput.scrollHeight;
+  }
+}
 function resolveLook() {
   if (myInput.value == 'l bicycle') {
     if (rooms[activeRow][activeCol].name == "roomOne") {
